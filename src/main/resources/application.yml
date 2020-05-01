@@ -1,0 +1,46 @@
+spring:
+  aop:
+    proxy-target-class: true
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=PRC&autoReconnect=true&characterEncoding=utf-8
+    username: root
+    password: admin
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat,wall,log4j,config
+    max-active: 100
+    initial-size: 1
+    max-wait: 60000
+    min-idle: 1
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    validation-query: select 'x'
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    pool-prepared-statements: true
+    max-open-prepared-statements: 50
+    max-pool-prepared-statement-per-connection-size: 20
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+mybatis:
+  type-aliases-package: com.ytmj.jzgl.domain
+  configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #控制台打印sql
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
