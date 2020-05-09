@@ -98,4 +98,9 @@ public class PatientServiceImpl implements PatientService {
         PageHelper.startPage(page,size);
        return   patientMapper.findAllPatient1();
     }
+
+    @Override
+    public List<Patient> findByName(String name) {
+        return patientMapper.findByName(name);
+    }
 }

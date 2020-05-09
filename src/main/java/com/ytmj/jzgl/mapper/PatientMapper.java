@@ -63,4 +63,8 @@ public interface PatientMapper {
     @Select("select * from patient")
     public List<Patient> findAllPatient1();
 
+    //通过用户名查询病人信息
+    @Select("select * from patient where name=#{name} ")
+    List<Patient> findByName(@Param("name")String name);
+
 }

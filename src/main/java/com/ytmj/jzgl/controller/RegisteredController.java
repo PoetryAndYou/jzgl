@@ -66,4 +66,10 @@ public class RegisteredController {
         return JsonData.buildError("清除成功");
     }
 
+    @RequestMapping("findByName")
+    JsonData findByName(String name){
+        List<Patient> byName = patientService.findByName(name);
+        return JsonData.buildSuccess(byName);
+    }
+
 }

@@ -42,4 +42,6 @@ public interface PatientService {
     public List<Patient> findAllOldPatient(Integer page, Integer size);
 
     public List<Patient> findAllPatient1(Integer page, Integer size);
+
+    List<Patient> findByName(String name);
 }
