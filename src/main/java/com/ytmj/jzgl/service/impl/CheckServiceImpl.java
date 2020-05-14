@@ -20,6 +20,7 @@ import java.util.List;
 public class CheckServiceImpl implements CheckService {
     @Autowired
     private CheckMapper checkMapper;
+
     @Override
     public List<ICheck> findAllCheck() {
         return checkMapper.findAllCheck();
@@ -27,17 +28,32 @@ public class CheckServiceImpl implements CheckService {
 
     @Override
     public List<PCheck> findAllPCheck(Integer page, Integer size) {
-        PageHelper.startPage(page,size);
+        PageHelper.startPage(page, size);
         return checkMapper.findAllPCheck();
     }
 
     @Override
     public void addPcheck(String name, String pname) {
-        checkMapper.addPcheck(name,pname);
+        checkMapper.addPcheck(name, pname);
     }
 
     @Override
     public void deleteCheck(Integer id) {
         checkMapper.deleteCheck(id);
+    }
+
+    @Override
+    public void addCheck(ICheck iCheck) {
+        checkMapper.addCheck(iCheck);
+    }
+
+    @Override
+    public void updateCheck(ICheck iCheck) {
+        checkMapper.updateCheck(iCheck);
+    }
+
+    @Override
+    public void deleteICheck(Integer id) {
+        checkMapper.deleteICheck(id);
     }
 }

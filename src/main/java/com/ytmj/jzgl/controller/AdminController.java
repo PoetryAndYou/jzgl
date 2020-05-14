@@ -208,4 +208,25 @@ public class AdminController {
         departmentService.updateDepartment(viewdepartment);
         return JsonData.buildSuccess();
     }
+
+    @Autowired
+    private CheckService checkService;
+
+    //添加检查项
+    JsonData addCheck(ICheck iCheck) {
+        checkService.addCheck(iCheck);
+        return JsonData.buildSuccess();
+    }
+
+    //修改
+    JsonData updateCheck(ICheck iCheck) {
+        checkService.updateCheck(iCheck);
+        return JsonData.buildSuccess();
+    }
+
+    //删除
+    public JsonData deleteICheck(@Param("id") Integer id) {
+        checkService.deleteICheck(id);
+        return JsonData.buildSuccess();
+    }
 }

@@ -2,10 +2,7 @@ package com.ytmj.jzgl.mapper;
 
 import com.ytmj.jzgl.domain.ICheck;
 import com.ytmj.jzgl.domain.PCheck;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -30,4 +27,13 @@ public interface CheckMapper {
     @Delete("delete from pcheck where id=#{id}")
     public void deleteCheck(@Param("id")Integer id);
 
+    //添加检查项
+    @Insert("insert into icheck(name, description) values (#{name} ,#{description} )")
+    void addCheck(ICheck iCheck);
+    //修改
+    @Update("update icheck set name=#{name} ,description=#{description} where id=#{id} ")
+    void updateCheck(ICheck iCheck);
+    //删除
+    @Delete("delete from icheck where id=#{id} ")
+    public void deleteICheck(@Param("id")Integer id);
 }
