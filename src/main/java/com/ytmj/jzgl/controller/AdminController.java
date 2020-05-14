@@ -229,4 +229,13 @@ public class AdminController {
         checkService.deleteICheck(id);
         return JsonData.buildSuccess();
     }
+
+    /**
+     * 查找所有检查
+     * @return
+     */
+    public JsonData findAllCheck(){
+        List<ICheck> allCheck = checkService.findAllCheck();
+        return JsonData.buildSuccess(allCheck);
+    }
 }
