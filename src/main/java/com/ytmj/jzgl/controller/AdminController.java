@@ -4,6 +4,7 @@ import com.ytmj.jzgl.domain.*;
 import com.ytmj.jzgl.service.*;
 import com.ytmj.jzgl.utils.JsonData;
 import org.apache.ibatis.annotations.Param;
+import org.hibernate.validator.constraints.pl.REGON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -213,18 +214,21 @@ public class AdminController {
     private CheckService checkService;
 
     //添加检查项
+    @RequestMapping("addCheck")
     JsonData addCheck(ICheck iCheck) {
         checkService.addCheck(iCheck);
         return JsonData.buildSuccess();
     }
 
     //修改
+    @RequestMapping("updateCheck")
     JsonData updateCheck(ICheck iCheck) {
         checkService.updateCheck(iCheck);
         return JsonData.buildSuccess();
     }
 
     //删除
+    @RequestMapping("deleteICheck")
     public JsonData deleteICheck(@Param("id") Integer id) {
         checkService.deleteICheck(id);
         return JsonData.buildSuccess();
@@ -234,6 +238,7 @@ public class AdminController {
      * 查找所有检查
      * @return
      */
+    @RequestMapping("findAllCheck")
     public JsonData findAllCheck(){
         List<ICheck> allCheck = checkService.findAllCheck();
         return JsonData.buildSuccess(allCheck);
