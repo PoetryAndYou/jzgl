@@ -28,11 +28,11 @@ public interface PatientMapper {
     public List<Patient> findAllPatient();
 
     //添加挂号信息
-    @Insert("insert into patient(name,age,sex,number,money,idcard,department,create_time,status) values (#{name},#{age},#{sex},#{number} ,#{money} ,#{idcard},#{department} ,#{create_time} ,'1'  )")
+    @Insert("insert into patient(name,age,sex,number,money,idcard,department,create_time,status,sfcz) values (#{name},#{age},#{sex},#{number} ,#{money} ,#{idcard},#{department} ,#{create_time} ,'1' ,#{sfcz} )")
     public void addPatient(Patient patient) throws Exception;
 
     //更新病人信息
-    @Update("update patient set idcard=#{idcard} ,name=#{name} ,number=#{number} ,money=#{money} ,department=#{department},status='1',create_time=#{create_time}  where id=#{id}")
+    @Update("update patient set idcard=#{idcard} ,name=#{name} ,number=#{number} ,money=#{money} ,department=#{department},status='1',create_time=#{create_time},sfcz=#{sfcz}  where id=#{id}")
     public void updatePatient(Patient patient)throws Exception;
     //更新病人信息
     @Update("update patient set  name=#{name},age=#{age} ,sex=#{sex} ,number=#{number},status='2' where id=#{id}")

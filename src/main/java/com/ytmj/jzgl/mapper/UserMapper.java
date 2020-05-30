@@ -42,7 +42,7 @@ public interface UserMapper {
     public void resetPassword(@Param("password")String password,@Param("userId")Integer  userId);
 
     //更新用户信息
-    @Update("update user set name=#{name} ,sex=#{sex},age=#{age} ,number=#{number} ,mail=#{mail}  where username=#{username} ")
+    @Update("update user set name=#{name} ,sex=#{sex},age=#{age} ,number=#{number} ,mail=#{mail}  where id=#{id} ")
     public void updateUser(User user);
 
     //删除用户

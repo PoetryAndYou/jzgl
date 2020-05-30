@@ -12,6 +12,15 @@ public class Patient {
      * @mbg.generated Wed Apr 15 00:48:15 CST 2020
      */
     private Integer id;
+    private String sfcz;
+
+    public String getSfcz() {
+        return sfcz;
+    }
+
+    public void setSfcz(String sfcz) {
+        this.sfcz = sfcz;
+    }
 
     /**
      *
@@ -313,5 +322,6 @@ public class Patient {
     public void setList(List<MedicalRecord> list) {
         this.list = list;
     }
+
 
 }
